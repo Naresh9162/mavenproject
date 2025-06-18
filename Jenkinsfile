@@ -17,7 +17,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                // Example: sh './deploy.sh'
+                withCredentials([string(credentialsId:'deploy', variable: 'deploy')]) {
+            sh 'export deploy=$deploy'
+
+            
+            sh 'chmod u+x $WORKSPACE/test-classes/seleniumJava/upload.sh; ./test-classes/seleniumJava/upload.sh'
+        }
             }
         }
     }
