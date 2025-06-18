@@ -21,7 +21,7 @@ pipeline {
             sh 'export deploy=$deploy'
 
             
-            sh 'chmod u+x $WORKSPACE/test-classes/seleniumJava/upload.sh; ./test-classes/seleniumJava/upload.sh'
+            sh 'chmod u+x $WORKSPACE/test-classes/seleniumJava/upload.sh; $WORKSPACE/test-classes/seleniumJava/upload.sh'
         }
             }
         }
